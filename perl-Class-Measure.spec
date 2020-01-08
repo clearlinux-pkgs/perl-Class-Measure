@@ -4,13 +4,14 @@
 #
 Name     : perl-Class-Measure
 Version  : 0.07
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/B/BL/BLUEFEET/Class-Measure-0.07.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BL/BLUEFEET/Class-Measure-0.07.tar.gz
 Summary  : 'Create, compare, and convert units of measurement.'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Class-Measure-license = %{version}-%{release}
+Requires: perl-Class-Measure-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(ExtUtils::Config)
 BuildRequires : perl(ExtUtils::Helpers)
@@ -40,8 +41,18 @@ Group: Default
 license components for the perl-Class-Measure package.
 
 
+%package perl
+Summary: perl components for the perl-Class-Measure package.
+Group: Default
+Requires: perl-Class-Measure = %{version}-%{release}
+
+%description perl
+perl components for the perl-Class-Measure package.
+
+
 %prep
 %setup -q -n Class-Measure-0.07
+cd %{_builddir}/Class-Measure-0.07
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -59,7 +70,7 @@ fi
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Class-Measure
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Class-Measure/LICENSE
+cp %{_builddir}/Class-Measure-0.07/LICENSE %{buildroot}/usr/share/package-licenses/perl-Class-Measure/224f103b390d1c8dbaaf3d9660fea6bad84bbaa5
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -72,8 +83,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Class/Measure.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Class/Measure/Length.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -82,4 +91,9 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Class-Measure/LICENSE
+/usr/share/package-licenses/perl-Class-Measure/224f103b390d1c8dbaaf3d9660fea6bad84bbaa5
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Class/Measure.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Class/Measure/Length.pm
