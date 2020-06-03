@@ -4,7 +4,7 @@
 #
 Name     : perl-Class-Measure
 Version  : 0.07
-Release  : 3
+Release  : 4
 URL      : https://cpan.metacpan.org/authors/id/B/BL/BLUEFEET/Class-Measure-0.07.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BL/BLUEFEET/Class-Measure-0.07.tar.gz
 Summary  : 'Create, compare, and convert units of measurement.'
@@ -95,5 +95,5 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.2/Class/Measure.pm
-/usr/lib/perl5/vendor_perl/5.30.2/Class/Measure/Length.pm
+/usr/lib/perl5/vendor_perl/5.30.3/Class/Measure.pm
+/usr/lib/perl5/vendor_perl/5.30.3/Class/Measure/Length.pm
