@@ -4,7 +4,7 @@
 #
 Name     : perl-Class-Measure
 Version  : 0.09
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/B/BL/BLUEFEET/Class-Measure-0.09.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BL/BLUEFEET/Class-Measure-0.09.tar.gz
 Summary  : 'Create, compare, and convert units of measurement.'
